@@ -16,7 +16,7 @@ namespace Models
 
         // Ajouts
         public int OwnerId { get; set; } = 1;
-        public bool Shared { get; set; } = false;
+        public bool Shared { get; set; } = true;
 
     }
 }
