@@ -20,5 +20,16 @@
     "Notify": true,
     "Avatar": "/App_Assets/Users/no_avatar.png",
     "Id": 2
+  },
+  {
+    "Name": "usagerPremier",
+    "Email": "usager@usager.com",
+    "Password": "vXXPICXgnimcgAE8hr/X6VL7gtbRuYWZwh24GzFF684=Ie4dRKTRUWD0xtjd/s5CEd6Y9aQ=",
+    "Access": 2,
+    "Blocked": false,
+    "Verified": true,
+    "Notify": true,
+    "Avatar": "/App_Assets/Users/no_avatar.png",
+    "Id": 8
   }
 ]
