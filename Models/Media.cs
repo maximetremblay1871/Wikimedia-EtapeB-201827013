@@ -13,5 +13,10 @@ namespace Models
         public string Description { get; set; }
         public string YoutubeId { get; set; }
         public DateTime PublishDate { get; set; } = DateTime.Now;
+
+        // Ajouts
+        public int OwnerId { get; set; }
+        public bool Shared { get; set; }
+
     }
 }
