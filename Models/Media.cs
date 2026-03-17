@@ -15,8 +15,8 @@ namespace Models
         public DateTime PublishDate { get; set; } = DateTime.Now;
 
         // Ajouts
-        public int OwnerId { get; set; }
-        public bool Shared { get; set; }
+        public int OwnerId { get; set; } = 1;
+        public bool Shared { get; set; } = false;
 
     }
 }
