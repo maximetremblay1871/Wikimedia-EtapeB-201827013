@@ -15,7 +15,7 @@
     bool userConnected = Models.User.ConnectedUser != null;
     bool userIsAdmin = userConnected ? Models.User.ConnectedUser.IsAdmin : false;
     bool userCanWrite = userConnected ? Models.User.ConnectedUser.CanWrite : false;
-    bool userIsMediaOwner = Session["CurrentMediaOwnerId"] != null ? ((int)Session["CurrentMediaOwnerId"] == Models.User.ConnectedUser.Id) : false;
+    bool userIsMediaOwner = Session["IsCurrentMediaOwner"] != null ? (bool)Session["IsCurrentMediaOwner"] : false; 
 
     string index = RouteConfig.DefaultAction();
 }

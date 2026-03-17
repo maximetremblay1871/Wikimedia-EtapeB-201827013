@@ -17,7 +17,7 @@ public class MediasController : Controller
 
         if (Session["CurrentMediaId"] == null) Session["CurrentMediaId"] = 0;
         if (Session["CurrentMediaTitle"] == null) Session["CurrentMediaTitle"] = "";
-        if (Session["CurrentMediaOwnerId"] == null) Session["CurrentMediaOwnerId"] = 0;
+        if (Session["IsCurrentMediaOwner"] == null) Session["IsCurrentMediaOwner"] = false;
         if (Session["Search"] == null) Session["Search"] = false;
         if (Session["SearchString"] == null) Session["SearchString"] = "";
         if (Session["SelectedCategory"] == null) Session["SelectedCategory"] = "";
@@ -31,7 +31,7 @@ public class MediasController : Controller
     {
         Session["CurrentMediaId"] = 0;
         Session["CurrentMediaTitle"] = "";
-        Session["CurrentMediaOwnerId"] = 0;
+        Session["IsCurrentMediaOwner"] = false;
     }
 
     private void ValidateSelectedCategory()
@@ -181,7 +181,6 @@ public class MediasController : Controller
         return View();
     }
 
-
     public ActionResult Details(int id)
     {
         Session["CurrentMediaId"] = id;
@@ -189,7 +188,7 @@ public class MediasController : Controller
         if (Media != null)
         {
             Session["CurrentMediaTitle"] = Media.Title;
-            Session["CurrentMediaOwnerId"] = Media.OwnerId;
+            Session["IsCurrentMediaOwner"] = Media.OwnerId == Models.User.ConnectedUser.Id;
             return View(Media);
         }
         return RedirectToAction("List");
