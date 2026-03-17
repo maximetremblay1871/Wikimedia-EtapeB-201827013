@@ -203,8 +203,9 @@ public class MediasController : Controller
      * the goal is to prevent submission of data from a page 
      * that has not been produced by this application*/
     [ValidateAntiForgeryToken()]
-    public ActionResult Create(Media Media)
+    public ActionResult Create(Media Media, string SharedCB = "off")
     {
+        Media.Shared = SharedCB == "on";
         Media.OwnerId = Models.User.ConnectedUser.Id;
         DB.Medias.Add(Media);
         return RedirectToAction("List");
