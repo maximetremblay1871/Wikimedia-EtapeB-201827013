@@ -233,7 +233,7 @@ public class MediasController : Controller
     [UserAccess(Access.Write)]
     [HttpPost]
     [ValidateAntiForgeryToken()]
-    public ActionResult Edit(Media Media)
+    public ActionResult Edit(Media Media, string SharedCB = "off")
     {
         // Has explained earlier, id of Media is stored server side an not provided in form data
         // passed in the method in order to prever from malicious requests
@@ -245,7 +245,9 @@ public class MediasController : Controller
         if (storedMedia != null)
         {
             Media.Id = id; // patch the Id
-            Media.PublishDate = storedMedia.PublishDate; // keep orignal PublishDate
+            Media.PublishDate = storedMedia.PublishDate;    // keep orignal PublishDate
+            Media.OwnerId = storedMedia.OwnerId;            // keep original OwnerId
+            Media.Shared = SharedCB == "on";                // set the new .Shared (it isn't done automatically through the form)
             DB.Medias.Update(Media);
         }
         return RedirectToAction("Details/" + id);
