@@ -17,6 +17,7 @@ public class MediasController : Controller
 
         if (Session["CurrentMediaId"] == null) Session["CurrentMediaId"] = 0;
         if (Session["CurrentMediaTitle"] == null) Session["CurrentMediaTitle"] = "";
+        if (Session["CurrentMediaOwnerId"] == null) Session["CurrentMediaOwnerId"] = 0;
         if (Session["Search"] == null) Session["Search"] = false;
         if (Session["SearchString"] == null) Session["SearchString"] = "";
         if (Session["SelectedCategory"] == null) Session["SelectedCategory"] = "";
@@ -30,6 +31,7 @@ public class MediasController : Controller
     {
         Session["CurrentMediaId"] = 0;
         Session["CurrentMediaTitle"] = "";
+        Session["CurrentMediaOwnerId"] = 0;
     }
 
     private void ValidateSelectedCategory()
@@ -187,6 +189,7 @@ public class MediasController : Controller
         if (Media != null)
         {
             Session["CurrentMediaTitle"] = Media.Title;
+            Session["CurrentMediaOwnerId"] = Media.OwnerId;
             return View(Media);
         }
         return RedirectToAction("List");
