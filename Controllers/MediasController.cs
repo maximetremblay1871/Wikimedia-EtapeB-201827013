@@ -205,6 +205,7 @@ public class MediasController : Controller
     [ValidateAntiForgeryToken()]
     public ActionResult Create(Media Media)
     {
+        Media.OwnerId = Models.User.ConnectedUser.Id;
         DB.Medias.Add(Media);
         return RedirectToAction("List");
     }
