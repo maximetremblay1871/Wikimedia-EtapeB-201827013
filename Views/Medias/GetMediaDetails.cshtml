@@ -2,6 +2,8 @@
 
 @if (Model != null)
 {
+    User owner = DAL.DB.Users.Get(@Model.OwnerId);
+    User connected = Models.User.ConnectedUser;
     <dl>
         <dd>
             @Model.Title
@@ -27,6 +29,19 @@
         <dd>
             @Helper.When(Model.PublishDate)
         </dd>
+        <dt>
+            Ajouté par :
+        </dt>
+        <dd>
+            <div class="userItem">
+                <div class="UserMediumAvatar" style="background:url(@owner.Avatar)"></div>
+                <div class="ellipsis">@owner.Name</div>
+            </div>
+        </dd>
+        @if(owner.Id == connected.Id && Model.Shared)
+                {
+                    <dt style="color:blue">[Partagé]</dt>
+                }
 
     </dl>
 }
