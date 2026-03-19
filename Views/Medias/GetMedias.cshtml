@@ -4,7 +4,7 @@
 {
     foreach (var media in Model)
     {
-        if (media.Shared || media.OwnerId == Models.User.ConnectedUser.Id)
+        if (media.Shared || media.OwnerId == Models.User.ConnectedUser.Id || Models.User.ConnectedUser.IsAdmin)
         {
             User owner = DAL.DB.Users.Get(media.OwnerId);
             <div class="mediaLayout">

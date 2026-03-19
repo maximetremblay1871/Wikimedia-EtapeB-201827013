@@ -2,8 +2,14 @@
 
 @if (Model != null)
 {
-    User owner = DAL.DB.Users.Get(Model.OwnerId);
-    string connected = Model.OwnerId == Models.User.ConnectedUser.Id && Model.Shared ? "[Partagé]" : "";
+    if (!Model.Shared && Model.OwnerId != Models.User.ConnectedUser.Id && !Models.User.ConnectedUser.IsAdmin)
+    {
+                    <div style="color: red; font-size: x-large">La vidéo n'est plus partagée</div>
+    }
+    else
+    {
+        User owner = DAL.DB.Users.Get(Model.OwnerId);
+        string connected = Model.OwnerId == Models.User.ConnectedUser.Id && Model.Shared ? "[Partagé]" : "";
     <dl>
         <dd>
             @Model.Title
@@ -41,4 +47,5 @@
         </dd>
 
     </dl>
+    }
 }
