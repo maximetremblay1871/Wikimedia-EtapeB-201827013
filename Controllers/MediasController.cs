@@ -227,7 +227,14 @@ public class MediasController : Controller
         {
             Media Media = DB.Medias.Get(id);
             if (Media != null)
+            {
+
+                if (Models.User.ConnectedUser.Id != Media.OwnerId && !Models.User.ConnectedUser.IsAdmin)
+                    return Redirect("/Accounts/Login?message=Accès illégal!&success=false");
+
                 return View(Media);
+            }
+                
         }
         return RedirectToAction("List");
     }
@@ -261,6 +268,11 @@ public class MediasController : Controller
         int id = Session["CurrentMediaId"] != null ? (int)Session["CurrentMediaId"] : 0;
         if (id != 0)
         {
+            Media Media = DB.Medias.Get(id);
+
+            if (Models.User.ConnectedUser.Id != Media.OwnerId && !Models.User.ConnectedUser.IsAdmin)
+                return Redirect("/Accounts/Login?message=Accès illégal!&success=false");
+
             DB.Medias.Delete(id);
         }
         return RedirectToAction("List");

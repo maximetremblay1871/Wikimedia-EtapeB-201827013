@@ -11,6 +11,10 @@
         User owner = DAL.DB.Users.Get(Model.OwnerId);
         string connected = Model.OwnerId == Models.User.ConnectedUser.Id && Model.Shared ? "[Partagé]" : "";
     <dl>
+        <dd style="color: #808080">
+            @shared
+        </dd>
+
         <dd>
             @Model.Title
         </dd>
@@ -41,9 +45,8 @@
         </dt>
 
         <dd>
-            <img class="UserSmallAvatar transparentBackground" src="@owner.Avatar"></img>
+            <img class="UserSmallAvatar transparentBackground" src="@owner.Avatar"/>
             @owner.Name
-            @connected
         </dd>
 
     </dl>
