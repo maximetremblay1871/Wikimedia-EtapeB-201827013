@@ -22,14 +22,25 @@
     "Id": 2
   },
   {
-    "Name": "usagerPremier",
-    "Email": "usager@usager.com",
+    "Name": "Usager",
+    "Email": "usager@app.net",
     "Password": "vXXPICXgnimcgAE8hr/X6VL7gtbRuYWZwh24GzFF684=Ie4dRKTRUWD0xtjd/s5CEd6Y9aQ=",
-    "Access": 2,
+    "Access": 1,
     "Blocked": false,
     "Verified": true,
     "Notify": true,
     "Avatar": "/App_Assets/Users/no_avatar.png",
     "Id": 8
+  },
+  {
+    "Name": "Super usager",
+    "Email": "super@app.net",
+    "Password": "6gOmjw1/iEv2EXTW/mnOw9E9WhbJNQEzm9AoQxf8Avw=B3Y0AAaZR7zXS2htXJB53OX+dFk=",
+    "Access": 2,
+    "Blocked": false,
+    "Verified": true,
+    "Notify": true,
+    "Avatar": "/App_Assets/Users/no_avatar.png",
+    "Id": 9
   }
 ]

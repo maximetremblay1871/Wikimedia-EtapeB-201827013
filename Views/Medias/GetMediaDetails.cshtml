@@ -9,7 +9,7 @@
     else
     {
         User owner = DAL.DB.Users.Get(Model.OwnerId);
-        string connected = Model.OwnerId == Models.User.ConnectedUser.Id && Model.Shared ? "[Partagé]" : "";
+        string shared = Model.OwnerId == Models.User.ConnectedUser.Id && Model.Shared ? "[Partagé]" : "";
     <dl>
         <dd style="color: #808080">
             @shared
