@@ -74,13 +74,12 @@ public class MediasController : Controller
 
             int mediaId = (int)Session["CurrentMediaId"];
             Media Media = DB.Medias.Get(mediaId);
-            if (Media != null)
-            {
+           
                 if (DB.Users.HasChanged || DB.Medias.HasChanged || forceRefresh)
                 {
                     return PartialView(Media);
                 }
-            }
+            
             return null;
         }
         catch (System.Exception ex)
